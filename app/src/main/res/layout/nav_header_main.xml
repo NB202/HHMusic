@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
+        android:background="@drawable/vbebg"
+        android:padding="@dimen/container_layout_margin">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/avatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            fresco:placeholderImage="@mipmap/placeholder_disk_300"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:progressBarAutoRotateInterval="1000"
+            fresco:progressBarImage="@mipmap/loading_big"
+            fresco:progressBarImageScaleType="centerInside"
+            fresco:roundAsCircle="true" />
+
+
+        <TextView
+            android:id="@+id/user_name"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/default_username"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
