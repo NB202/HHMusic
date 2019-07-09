@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -58,8 +58,8 @@ public class MusicFragment extends BaseFragment {
         if (view == null && mContext != null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.recylerview, frameLayout, false);
 
-            dialogText = (TextView) view.findViewById(R.id.dialog_text);
-            recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+            dialogText = view.findViewById(R.id.dialog_text);
+            recyclerView = view.findViewById(R.id.recyclerview);
             layoutManager = new LinearLayoutManager(mContext);
             recyclerView.setLayoutManager(layoutManager);
             mAdapter = new Adapter(null);
@@ -68,7 +68,7 @@ public class MusicFragment extends BaseFragment {
 
             recyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL_LIST));
 
-            sideBar = (SideBar) view.findViewById(R.id.sidebar);
+            sideBar = view.findViewById(R.id.sidebar);
             sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
                 @Override
                 public void onTouchingLetterChanged(String s) {
@@ -114,7 +114,7 @@ public class MusicFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) view.findViewById(R.id.loadframe);
+        frameLayout = view.findViewById(R.id.loadframe);
         View loadView = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadView);
         isFirstLoad = true;
@@ -290,8 +290,8 @@ public class MusicFragment extends BaseFragment {
             }
             if (holder instanceof ListItemViewHolder) {
 
-                ((ListItemViewHolder) holder).mainTitle.setText(model.musicName.toString());
-                ((ListItemViewHolder) holder).title.setText(model.artist.toString());
+                ((ListItemViewHolder) holder).mainTitle.setText(model.musicName);
+                ((ListItemViewHolder) holder).title.setText(model.artist);
 
 
                 if (MusicPlayer.getCurrentAudioId() == model.songId) {
@@ -330,8 +330,8 @@ public class MusicFragment extends BaseFragment {
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
                 view.setOnClickListener(this);
             }
 
@@ -358,10 +358,10 @@ public class MusicFragment extends BaseFragment {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-                this.title = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
-                this.moreOverflow = (ImageView) view.findViewById(R.id.viewpager_list_button);
+                this.mainTitle = view.findViewById(R.id.viewpager_list_toptext);
+                this.title = view.findViewById(R.id.viewpager_list_bottom_text);
+                this.playState = view.findViewById(R.id.play_state);
+                this.moreOverflow = view.findViewById(R.id.viewpager_list_button);
 
 
                 moreOverflow.setOnClickListener(new View.OnClickListener() {

@@ -2,10 +2,10 @@ package com.hhmusic.fragmentnet;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +52,7 @@ public class ArtistInfoMusicFragment extends BaseFragment {
             mList = getArguments().getParcelableArrayList("list");
         }
         Activity parentActivity = getActivity();
-        recyclerView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
+        recyclerView = view.findViewById(R.id.scroll);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setHasFixedSize(true);
         mAdapter = new PlaylistDetailAdapter(getActivity(), mList);
@@ -173,9 +173,9 @@ public class ArtistInfoMusicFragment extends BaseFragment {
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
-                this.layout = (RelativeLayout) view.findViewById(R.id.play_all_layout);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
+                this.layout = view.findViewById(R.id.play_all_layout);
                 layout.setOnClickListener(this);
             }
 
@@ -206,11 +206,11 @@ public class ArtistInfoMusicFragment extends BaseFragment {
 
             public ItemViewHolder(View view) {
                 super(view);
-                this.title = (TextView) view.findViewById(R.id.song_title);
-                this.artist = (TextView) view.findViewById(R.id.song_artist);
-                this.trackNumber = (TextView) view.findViewById(R.id.trackNumber);
-                this.menu = (ImageView) view.findViewById(R.id.popup_menu);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
+                this.title = view.findViewById(R.id.song_title);
+                this.artist = view.findViewById(R.id.song_artist);
+                this.trackNumber = view.findViewById(R.id.trackNumber);
+                this.menu = view.findViewById(R.id.popup_menu);
+                this.playState = view.findViewById(R.id.play_state);
                 view.setOnClickListener(this);
             }
 

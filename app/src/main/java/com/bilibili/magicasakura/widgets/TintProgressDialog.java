@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
@@ -107,14 +107,14 @@ public class TintProgressDialog extends AlertDialog implements Handler.Callback 
             mViewUpdateHandler = new Handler(this);
 
             View view = inflater.inflate(R.layout.dialog_alert_progress, null);
-            mProgress = (ProgressBar) view.findViewById(android.R.id.progress);
-            mProgressNumber = (TextView) view.findViewById(R.id.progress_number);
-            mProgressPercent = (TextView) view.findViewById(R.id.progress_percent);
+            mProgress = view.findViewById(android.R.id.progress);
+            mProgressNumber = view.findViewById(R.id.progress_number);
+            mProgressPercent = view.findViewById(R.id.progress_percent);
             setView(view);
         } else {
             View view = inflater.inflate(R.layout.dialog_progress, null);
-            mProgress = (ProgressBar) view.findViewById(android.R.id.progress);
-            mMessageView = (TextView) view.findViewById(R.id.message);
+            mProgress = view.findViewById(android.R.id.progress);
+            mMessageView = view.findViewById(R.id.message);
             setView(view);
         }
 

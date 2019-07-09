@@ -1,8 +1,7 @@
 package com.hhmusic.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,8 +72,8 @@ public class RecentSearchAdapter extends RecyclerView.Adapter<RecentSearchAdapte
 
         public ItemHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.title);
-            this.menu = (ImageView) view.findViewById(R.id.menu);
+            this.title = view.findViewById(R.id.title);
+            this.menu = view.findViewById(R.id.menu);
 
             view.setOnClickListener(this);
         }

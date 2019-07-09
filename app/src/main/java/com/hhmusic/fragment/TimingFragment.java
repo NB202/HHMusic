@@ -22,12 +22,12 @@ public class TimingFragment extends AttachDialogFragment implements View.OnClick
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         View view = inflater.inflate(R.layout.fragment_timing, container);
-        timing10 = (TextView) view.findViewById(R.id.timing_10min);
-        timing20 = (TextView) view.findViewById(R.id.timing_20min);
-        timing30 = (TextView) view.findViewById(R.id.timing_30min);
-        timing45 = (TextView) view.findViewById(R.id.timing_45min);
-        timing60 = (TextView) view.findViewById(R.id.timing_60min);
-        timing90 = (TextView) view.findViewById(R.id.timing_90min);
+        timing10 = view.findViewById(R.id.timing_10min);
+        timing20 = view.findViewById(R.id.timing_20min);
+        timing30 = view.findViewById(R.id.timing_30min);
+        timing45 = view.findViewById(R.id.timing_45min);
+        timing60 = view.findViewById(R.id.timing_60min);
+        timing90 = view.findViewById(R.id.timing_90min);
         timing10.setOnClickListener(this);
         timing20.setOnClickListener(this);
         timing30.setOnClickListener(this);

@@ -3,8 +3,8 @@ package com.hhmusic.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,8 +111,8 @@ public class PlaylistDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         CommonItemViewHolder(View view) {
             super(view);
-            this.textView = (TextView) view.findViewById(R.id.play_all_number);
-            this.select = (ImageView) view.findViewById(R.id.select);
+            this.textView = view.findViewById(R.id.play_all_number);
+            this.select = view.findViewById(R.id.select);
             view.setOnClickListener(this);
         }
 
@@ -140,10 +140,10 @@ public class PlaylistDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         public ItemViewHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.song_title);
-            this.artist = (TextView) view.findViewById(R.id.song_artist);
-            this.trackNumber = (TextView) view.findViewById(R.id.trackNumber);
-            this.menu = (ImageView) view.findViewById(R.id.popup_menu);
+            this.title = view.findViewById(R.id.song_title);
+            this.artist = view.findViewById(R.id.song_artist);
+            this.trackNumber = view.findViewById(R.id.trackNumber);
+            this.menu = view.findViewById(R.id.popup_menu);
             view.setOnClickListener(this);
         }
 

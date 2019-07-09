@@ -74,7 +74,7 @@ public class LrcRow implements Comparable<LrcRow> {
 
         int lastIndexOfRightBracket = lrcLine.lastIndexOf("]");
 
-        String content = lrcLine.substring(lastIndexOfRightBracket + 1, lrcLine.length());
+        String content = lrcLine.substring(lastIndexOfRightBracket + 1);
 
         System.out.println("lrcLine=" + lrcLine);
 
@@ -108,7 +108,7 @@ public class LrcRow implements Comparable<LrcRow> {
 
     @Override
     public int compareTo(LrcRow anotherLrcRow) {
-        return (int) (this.time - anotherLrcRow.time);
+        return (this.time - anotherLrcRow.time);
     }
 
     @Override

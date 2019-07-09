@@ -8,10 +8,13 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,8 +48,9 @@ import java.util.concurrent.TimeUnit;
 
 
 public class LoodView extends FrameLayout {
+    private static final String TAG = "LoodView";
 
-    private final static int IMAGE_COUNT = 5;
+    private final static int IMAGE_COUNT = 4;
 
     private final static int TIME_INTERVAL = 3;
 
@@ -94,11 +98,10 @@ public class LoodView extends FrameLayout {
 
     }
 
-    public void onDestroy(){
+    public void onDestroy() {
         scheduledExecutorService.shutdownNow();
         scheduledExecutorService = null;
     }
-
 
 
     public void startPlay() {
@@ -145,9 +148,9 @@ public class LoodView extends FrameLayout {
                 }
             };
             Uri uri = null;
-            try{
+            try {
                 uri = Uri.parse(imagesID);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             if (uri != null) {
@@ -165,7 +168,6 @@ public class LoodView extends FrameLayout {
             }
 
 
-
             mAlbumArt.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageViewList.add(mAlbumArt);
         }
@@ -173,11 +175,8 @@ public class LoodView extends FrameLayout {
         dotViewList.add(findViewById(R.id.v_dot2));
         dotViewList.add(findViewById(R.id.v_dot3));
         dotViewList.add(findViewById(R.id.v_dot4));
-        dotViewList.add(findViewById(R.id.v_dot5));
-        dotViewList.add(findViewById(R.id.v_dot6));
-        dotViewList.add(findViewById(R.id.v_dot7));
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = findViewById(R.id.viewPager);
         viewPager.setFocusable(true);
         fPagerAdapter = new FPagerAdapter();
         viewPager.setAdapter(fPagerAdapter);
@@ -190,9 +189,6 @@ public class LoodView extends FrameLayout {
                 R.mipmap.second,
                 R.mipmap.third,
                 R.mipmap.fourth,
-                R.mipmap.five,
-                R.mipmap.six,
-                R.mipmap.seven
         };
 
         new AsyncTask<Void, Void, Void>() {
@@ -205,6 +201,7 @@ public class LoodView extends FrameLayout {
                 try {
                     JsonArray rray = HttpUtil.getResposeJsonObject(BMA.focusPic(IMAGE_COUNT), mContext, isFromCache).get("pic").getAsJsonArray();
                     int en = rray.size();
+                    //Log.e(TAG, "大小: "+en );
                     Gson gson = new Gson();
 
                     imageNet.clear();
@@ -324,9 +321,7 @@ public class LoodView extends FrameLayout {
                 case 0:
                     if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1 && !isAutoPlay) {
                         viewPager.setCurrentItem(0);
-                    }
-
-                    else if (viewPager.getCurrentItem() == 0 && !isAutoPlay) {
+                    } else if (viewPager.getCurrentItem() == 0 && !isAutoPlay) {
                         viewPager.setCurrentItem(viewPager.getAdapter().getCount() - 1);
                     }
                     break;
@@ -360,17 +355,6 @@ public class LoodView extends FrameLayout {
 
             }
 
-        }
-    }
-
-
-    private void destoryBitmaps() {
-        for (int i = 0; i < IMAGE_COUNT; i++) {
-            ImageView imageView = imageViewList.get(i);
-            Drawable drawable = imageView.getDrawable();
-            if (drawable != null)
-
-                drawable.setCallback(null);
         }
     }
 }

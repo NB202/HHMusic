@@ -28,7 +28,7 @@
 
     <include layout="@layout/rank_playlist_header" />
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:theme="@style/Theme.AppCompat"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:subtitleTextAppearance="@style/Toolbar.SubTitle"

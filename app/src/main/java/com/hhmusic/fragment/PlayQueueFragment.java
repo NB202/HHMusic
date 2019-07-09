@@ -3,9 +3,9 @@ package com.hhmusic.fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -87,9 +87,9 @@ public class PlayQueueFragment extends AttachDialogFragment {
         View view = inflater.inflate(R.layout.fragment_queue, container);
 
 
-        playlistNumber = (TextView) view.findViewById(R.id.play_list_number);
-        addToPlaylist = (TextView) view.findViewById(R.id.playlist_addto);
-        clearAll = (TextView) view.findViewById(R.id.playlist_clear_all);
+        playlistNumber = view.findViewById(R.id.play_list_number);
+        addToPlaylist = view.findViewById(R.id.playlist_addto);
+        clearAll = view.findViewById(R.id.playlist_clear_all);
 
         addToPlaylist.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +114,7 @@ public class PlayQueueFragment extends AttachDialogFragment {
                 dismiss();
             }
         });
-        recyclerView = (RecyclerView) view.findViewById(R.id.play_list);
+        recyclerView = view.findViewById(R.id.play_list);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -135,7 +135,7 @@ public class PlayQueueFragment extends AttachDialogFragment {
     private String readTextFromSDcard(InputStream is) throws Exception {
         InputStreamReader reader = new InputStreamReader(is);
         BufferedReader bufferedReader = new BufferedReader(reader);
-        StringBuffer buffer = new StringBuffer("");
+        StringBuffer buffer = new StringBuffer();
         String str;
         while ((str = bufferedReader.readLine()) != null) {
             buffer.append(str);
@@ -241,10 +241,10 @@ public class PlayQueueFragment extends AttachDialogFragment {
 
             public ItemViewHolder(View itemView) {
                 super(itemView);
-                this.playstate = (TintImageView) itemView.findViewById(R.id.play_state);
-                this.delete = (ImageView) itemView.findViewById(R.id.play_list_delete);
-                this.MusicName = (TextView) itemView.findViewById(R.id.play_list_musicname);
-                this.Artist = (TextView) itemView.findViewById(R.id.play_list_artist);
+                this.playstate = itemView.findViewById(R.id.play_state);
+                this.delete = itemView.findViewById(R.id.play_list_delete);
+                this.MusicName = itemView.findViewById(R.id.play_list_musicname);
+                this.Artist = itemView.findViewById(R.id.play_list_artist);
                 itemView.setOnClickListener(this);
 
                 this.delete.setOnClickListener(new View.OnClickListener() {

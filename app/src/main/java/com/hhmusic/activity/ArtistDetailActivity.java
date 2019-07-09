@@ -4,12 +4,12 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -91,20 +91,20 @@ public class ArtistDetailActivity extends BaseActivity implements ObservableScro
             artistName = getIntent().getStringExtra("artistname");
         }
         setContentView(R.layout.activity_artist);
-        loadFrameLayout = (FrameLayout) findViewById(R.id.state_container);
+        loadFrameLayout = findViewById(R.id.state_container);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         mHandler = HandlerUtil.getInstance(this);
 
         mActionBarSize = CommonUtils.getActionBarHeight(this);
         mStatusSize = CommonUtils.getStatusHeight(this);
-        artistArt = (SimpleDraweeView) findViewById(R.id.artist_art);
-        mHeaderView = (LinearLayout) findViewById(R.id.header);
-        tryAgain = (TextView) findViewById(R.id.try_again);
+        artistArt = findViewById(R.id.artist_art);
+        mHeaderView = findViewById(R.id.header);
+        tryAgain = findViewById(R.id.try_again);
 
-        mPager = (ViewPager) findViewById(R.id.pager);
-        tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        toolbar_bac = (ImageView) findViewById(R.id.toolbar_bac);
+        mPager = findViewById(R.id.pager);
+        tabLayout = findViewById(R.id.sliding_tabs);
+        toolbar_bac = findViewById(R.id.toolbar_bac);
         ViewGroup.LayoutParams layoutParams = toolbar_bac.getLayoutParams();
         layoutParams.height = mActionBarSize + mStatusSize;
         toolbar_bac.setLayoutParams(layoutParams);
@@ -321,7 +321,7 @@ public class ArtistDetailActivity extends BaseActivity implements ObservableScro
         }
 
         int toolbarHeight = mHeaderView.getHeight() - mActionBarSize - mStatusSize - tabLayout.getHeight();
-        final ObservableRecyclerView listView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
+        final ObservableRecyclerView listView = view.findViewById(R.id.scroll);
         if (listView == null) {
             return;
         }
@@ -371,7 +371,7 @@ public class ArtistDetailActivity extends BaseActivity implements ObservableScro
             if (view == null) {
                 continue;
             }
-            ObservableRecyclerView listView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
+            ObservableRecyclerView listView = view.findViewById(R.id.scroll);
             if (listView == null) {
                 continue;
             }

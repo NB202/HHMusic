@@ -19,13 +19,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -131,7 +131,7 @@ public class PlayingActivity extends BaseActivity implements IConstants {
         setContentView(R.layout.activity_playing);
         mPlaylistsManager = PlaylistsManager.getInstance(this);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             ab = getSupportActionBar();
@@ -147,27 +147,27 @@ public class PlayingActivity extends BaseActivity implements IConstants {
 
 
 
-        mAlbumLayout = (FrameLayout) findViewById(R.id.headerView);
-        mLrcViewContainer = (RelativeLayout) findViewById(R.id.lrcviewContainer);
-        mLrcView = (LrcView) findViewById(R.id.lrcview);
-        mTryGetLrc = (TextView) findViewById(R.id.tragetlrc);
-        mMusicTool = (LinearLayout) findViewById(R.id.music_tool);
+        mAlbumLayout = findViewById(R.id.headerView);
+        mLrcViewContainer = findViewById(R.id.lrcviewContainer);
+        mLrcView = findViewById(R.id.lrcview);
+        mTryGetLrc = findViewById(R.id.tragetlrc);
+        mMusicTool = findViewById(R.id.music_tool);
 
-        mBackAlbum = (ImageView) findViewById(R.id.albumArt);
-        mPlayingmode = (ImageView) findViewById(R.id.playing_mode);
-        mControl = (ImageView) findViewById(R.id.playing_play);
-        mNext = (ImageView) findViewById(R.id.playing_next);
-        mPre = (ImageView) findViewById(R.id.playing_pre);
-        mPlaylist = (ImageView) findViewById(R.id.playing_playlist);
-        mMore = (ImageView) findViewById(R.id.playing_more);
-        mCmt = (ImageView) findViewById(R.id.playing_cmt);
-        mFav = (ImageView) findViewById(R.id.playing_fav);
-        mDown = (ImageView) findViewById(R.id.playing_down);
-        mTimePlayed = (TextView) findViewById(R.id.music_duration_played);
-        mDuration = (TextView) findViewById(R.id.music_duration);
-        mProgress = (PlayerSeekBar) findViewById(R.id.play_seek);
-        mNeedle = (ImageView) findViewById(R.id.needle);
-        mViewPager = (AlbumViewPager) findViewById(R.id.view_pager);
+        mBackAlbum = findViewById(R.id.albumArt);
+        mPlayingmode = findViewById(R.id.playing_mode);
+        mControl = findViewById(R.id.playing_play);
+        mNext = findViewById(R.id.playing_next);
+        mPre = findViewById(R.id.playing_pre);
+        mPlaylist = findViewById(R.id.playing_playlist);
+        mMore = findViewById(R.id.playing_more);
+        mCmt = findViewById(R.id.playing_cmt);
+        mFav = findViewById(R.id.playing_fav);
+        mDown = findViewById(R.id.playing_down);
+        mTimePlayed = findViewById(R.id.music_duration_played);
+        mDuration = findViewById(R.id.music_duration);
+        mProgress = findViewById(R.id.play_seek);
+        mNeedle = findViewById(R.id.needle);
+        mViewPager = findViewById(R.id.view_pager);
 
         mNeedleAnim = ObjectAnimator.ofFloat(mNeedle, "rotation", -25, 0);
         mNeedleAnim.setDuration(200);
@@ -175,7 +175,7 @@ public class PlayingActivity extends BaseActivity implements IConstants {
 
         mNeedleAnim.setInterpolator(new LinearInterpolator());
 
-        mVolumeSeek = (SeekBar) findViewById(R.id.volume_seek);
+        mVolumeSeek = findViewById(R.id.volume_seek);
         mProgress.setIndeterminate(false);
         mProgress.setProgress(1);
         mProgress.setMax(1000);

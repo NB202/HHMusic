@@ -2,7 +2,7 @@ package com.hhmusic.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +26,11 @@ public class BitSetFragment extends DialogFragment implements View.OnClickListen
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         View view = inflater.inflate(R.layout.fragment_bitset, container);
-        bit1 = (TextView) view.findViewById(R.id.timing_10min);
-        bit2 = (TextView) view.findViewById(R.id.timing_20min);
-        bit3 = (TextView) view.findViewById(R.id.timing_30min);
-        bit256 = (TextView) view.findViewById(R.id.timing_45min);
-        bit320 = (TextView) view.findViewById(R.id.timing_60min);
+        bit1 = view.findViewById(R.id.timing_10min);
+        bit2 = view.findViewById(R.id.timing_20min);
+        bit3 = view.findViewById(R.id.timing_30min);
+        bit256 = view.findViewById(R.id.timing_45min);
+        bit320 = view.findViewById(R.id.timing_60min);
         bit1.setOnClickListener(this);
         bit2.setOnClickListener(this);
         bit3.setOnClickListener(this);

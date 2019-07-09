@@ -195,10 +195,7 @@ public class PlaylistsManager {
             cursor = mMusicDatabase.getReadableDatabase().query(PlaylistsColumns.NAME, null,
                     PlaylistsColumns.PLAYLIST_ID + " = ?" + " AND " +
                             PlaylistsColumns.TRACK_ID + " = ?", new String[]{favPlaylistId + "", id + ""}, null, null, null, null);
-            if (cursor != null && cursor.moveToFirst()) {
-                return true;
-            }
-            return false;
+            return cursor != null && cursor.moveToFirst();
 
         } finally {
             if (cursor != null) {
@@ -284,7 +281,7 @@ public class PlaylistsManager {
         Cursor cursor = null;
         try {
             cursor = mMusicDatabase.getReadableDatabase().query(PlaylistsColumns.NAME, null,
-                    PlaylistsColumns.TRACK_ID + " = " + String.valueOf(musicId), null, null, null, null, null);
+                    PlaylistsColumns.TRACK_ID + " = " + musicId, null, null, null, null, null);
             if (cursor != null && cursor.moveToFirst()) {
                 long[] deletedPlaylistIds = new long[cursor.getCount()];
                 int i = 0;
@@ -321,7 +318,7 @@ public class PlaylistsManager {
         Cursor cursor = null;
         try {
             cursor = mMusicDatabase.getReadableDatabase().query(PlaylistsColumns.NAME, null,
-                    PlaylistsColumns.PLAYLIST_ID + " = " + String.valueOf(playlistid), null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
+                    PlaylistsColumns.PLAYLIST_ID + " = " + playlistid, null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
             if (cursor != null) {
                 int len = cursor.getCount();
                 results = new long[len];
@@ -350,7 +347,7 @@ public class PlaylistsManager {
         Cursor cursor = null;
         try {
             cursor = mMusicDatabase.getReadableDatabase().query(PlaylistsColumns.NAME, null,
-                    PlaylistsColumns.PLAYLIST_ID + " = " + String.valueOf(playlistid), null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
+                    PlaylistsColumns.PLAYLIST_ID + " = " + playlistid, null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
             if (cursor != null && cursor.moveToFirst()) {
                 results.ensureCapacity(cursor.getCount());
 
@@ -375,7 +372,7 @@ public class PlaylistsManager {
         Cursor cursor = null;
         try {
             cursor = mMusicDatabase.getReadableDatabase().query(PlaylistsColumns.NAME, null,
-                    PlaylistsColumns.PLAYLIST_ID + " = " + String.valueOf(playlistid), null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
+                    PlaylistsColumns.PLAYLIST_ID + " = " + playlistid, null, null, null, PlaylistsColumns.TRACK_ORDER + " ASC ", null);
             if (cursor != null && cursor.moveToFirst()) {
                 results.ensureCapacity(cursor.getCount());
 

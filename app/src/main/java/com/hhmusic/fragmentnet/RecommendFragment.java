@@ -6,8 +6,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
@@ -62,7 +62,7 @@ public class RecommendFragment extends AttachFragment {
     private ArrayList<RecommendListNewAlbumInfo> mNewAlbumsList = new ArrayList<>();
     private ArrayList<RecommendListRadioInfo> mRadioList = new ArrayList<>();
     private int width = 160, height = 160;
-    private LinearLayout mItemLayout ,mViewContent;;
+    private LinearLayout mItemLayout ,mViewContent;
     private LayoutInflater mLayoutInflater;
     private View mLoadView, v1, v2, v3;
     private HashMap<String, View> mViewHashMap;
@@ -85,14 +85,14 @@ public class RecommendFragment extends AttachFragment {
         mLayoutInflater = LayoutInflater.from(mContext);
         mRecommendView = mLayoutInflater.inflate(R.layout.recommend,container,false);
         String date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "";
-        TextView dailyText = (TextView) mRecommendView.findViewById(R.id.daily_text);
+        TextView dailyText = mRecommendView.findViewById(R.id.daily_text);
         dailyText.setText(date);
-        mItemLayout = (LinearLayout) mRecommendView.findViewById(R.id.item_change);
-        mViewContent = (LinearLayout) mRecommendView.findViewById(R.id.recommend_layout);
+        mItemLayout = mRecommendView.findViewById(R.id.item_change);
+        mViewContent = mRecommendView.findViewById(R.id.recommend_layout);
         if(!PreferencesUtility.getInstance(mContext).isCurrentDayFirst(date)){
             PreferencesUtility.getInstance(mContext).setCurrentDate(date);
             View dayRec = mLayoutInflater.inflate(R.layout.loading_daymusic,container,false);
-            ImageView view1 = (ImageView) dayRec.findViewById(R.id.loading_dayimage) ;
+            ImageView view1 = dayRec.findViewById(R.id.loading_dayimage);
             RotateAnimation rotateAnimation = new RotateAnimation(0,360, 1, 0.5F, 1, 0.5F );
             rotateAnimation.setDuration(20000L);
             rotateAnimation.setInterpolator(new LinearInterpolator());
@@ -111,7 +111,7 @@ public class RecommendFragment extends AttachFragment {
         mNewAlbumsAdapter = new NewAlbumsAdapter(null);
         mRadioAdapter = new RadioAdapter(null);
 
-        TextView change = (TextView) mRecommendView.findViewById(R.id.change_item_position);
+        TextView change = mRecommendView.findViewById(R.id.change_item_position);
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +120,7 @@ public class RecommendFragment extends AttachFragment {
             }
         });
 
-        mLoodView = (LoodView) mRecommendView.findViewById(R.id.loop_view);
+        mLoodView = mRecommendView.findViewById(R.id.loop_view);
         if(!isDayFirst){
             mContent.addView(mRecommendView);
         }
@@ -179,12 +179,12 @@ public class RecommendFragment extends AttachFragment {
 
                 v1 = mLayoutInflater.inflate(R.layout.recommend_playlist, mViewContent, false);
 
-                mRecyclerView1 = (RecyclerView) v1.findViewById(R.id.recommend_playlist_recyclerview);
+                mRecyclerView1 = v1.findViewById(R.id.recommend_playlist_recyclerview);
                 mGridLayoutManager = new GridLayoutManager(mContext, 3);
                 mRecyclerView1.setLayoutManager(mGridLayoutManager);
                 mRecyclerView1.setAdapter(mRecomendAdapter);
                 mRecyclerView1.setHasFixedSize(true);
-                TextView more = (TextView) v1.findViewById(R.id.more);
+                TextView more = v1.findViewById(R.id.more);
                 more.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -194,14 +194,14 @@ public class RecommendFragment extends AttachFragment {
 
 
                 v2 = mLayoutInflater.inflate(R.layout.recommend_newalbums, mViewContent, false);
-                mRecyclerView2 = (RecyclerView) v2.findViewById(R.id.recommend_newalbums_recyclerview);
+                mRecyclerView2 = v2.findViewById(R.id.recommend_newalbums_recyclerview);
                 mGridLayoutManager2 = new GridLayoutManager(mContext, 3);
                 mRecyclerView2.setLayoutManager(mGridLayoutManager2);
                 mRecyclerView2.setAdapter(mNewAlbumsAdapter);
                 mRecyclerView2.setHasFixedSize(true);
 
                 v3 = mLayoutInflater.inflate(R.layout.recommend_radio, mViewContent, false);
-                mRecyclerView3 = (RecyclerView) v3.findViewById(R.id.recommend_radio_recyclerview);
+                mRecyclerView3 = v3.findViewById(R.id.recommend_radio_recyclerview);
                 mGridLayoutManager3 = new GridLayoutManager(mContext, 3);
                 mRecyclerView3.setLayoutManager(mGridLayoutManager3);
                 mRecyclerView3.setAdapter(mRadioAdapter);
@@ -286,11 +286,11 @@ public class RecommendFragment extends AttachFragment {
             }
 
             v1 = mLayoutInflater.inflate(R.layout.recommend_playlist, mViewContent, false);
-            mRecyclerView1 = (RecyclerView) v1.findViewById(R.id.recommend_playlist_recyclerview);
+            mRecyclerView1 = v1.findViewById(R.id.recommend_playlist_recyclerview);
             mGridLayoutManager = new GridLayoutManager(mContext, 3);
             mRecyclerView1.setLayoutManager(mGridLayoutManager);
             mRecyclerView1.setAdapter(mRecomendAdapter);
-            TextView more = (TextView) v1.findViewById(R.id.more);
+            TextView more = v1.findViewById(R.id.more);
             more.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -300,13 +300,13 @@ public class RecommendFragment extends AttachFragment {
 
 
             v2 = mLayoutInflater.inflate(R.layout.recommend_newalbums, mViewContent, false);
-            mRecyclerView2 = (RecyclerView) v2.findViewById(R.id.recommend_newalbums_recyclerview);
+            mRecyclerView2 = v2.findViewById(R.id.recommend_newalbums_recyclerview);
             mGridLayoutManager2 = new GridLayoutManager(mContext, 3);
             mRecyclerView2.setLayoutManager(mGridLayoutManager2);
             mRecyclerView2.setAdapter(mNewAlbumsAdapter);
 
             v3 = mLayoutInflater.inflate(R.layout.recommend_radio, mViewContent, false);
-            mRecyclerView3 = (RecyclerView) v3.findViewById(R.id.recommend_radio_recyclerview);
+            mRecyclerView3 = v3.findViewById(R.id.recommend_radio_recyclerview);
             mGridLayoutManager3 = new GridLayoutManager(mContext, 3);
             mRecyclerView3.setLayoutManager(mGridLayoutManager3);
             mRecyclerView3.setAdapter(mRadioAdapter);
@@ -455,9 +455,9 @@ public class RecommendFragment extends AttachFragment {
 
             public ItemView(View itemView) {
                 super(itemView);
-                art = (SimpleDraweeView) itemView.findViewById(R.id.playlist_art);
-                name = (TextView) itemView.findViewById(R.id.playlist_name);
-                count = (TextView) itemView.findViewById(R.id.playlist_listen_count);
+                art = itemView.findViewById(R.id.playlist_art);
+                name = itemView.findViewById(R.id.playlist_name);
+                count = itemView.findViewById(R.id.playlist_listen_count);
             }
         }
 
@@ -537,9 +537,9 @@ public class RecommendFragment extends AttachFragment {
 
             public ItemView(View itemView) {
                 super(itemView);
-                art = (SimpleDraweeView) itemView.findViewById(R.id.album_art);
-                albumName = (TextView) itemView.findViewById(R.id.album_name);
-                artsit = (TextView) itemView.findViewById(R.id.artist_name);
+                art = itemView.findViewById(R.id.album_art);
+                albumName = itemView.findViewById(R.id.album_name);
+                artsit = itemView.findViewById(R.id.artist_name);
             }
 
             @Override
@@ -629,9 +629,9 @@ public class RecommendFragment extends AttachFragment {
 
             public ItemView(View itemView) {
                 super(itemView);
-                art = (SimpleDraweeView) itemView.findViewById(R.id.album_art);
-                albumName = (TextView) itemView.findViewById(R.id.album_name);
-                artsit = (TextView) itemView.findViewById(R.id.artist_name);
+                art = itemView.findViewById(R.id.album_art);
+                albumName = itemView.findViewById(R.id.album_name);
+                artsit = itemView.findViewById(R.id.artist_name);
             }
 
             @Override

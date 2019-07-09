@@ -1,7 +1,7 @@
 package com.hhmusic.fragmentnet;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,13 +43,13 @@ public class ArtistInfoFragment extends AttachFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) view.findViewById(R.id.loadframe);
+        frameLayout = view.findViewById(R.id.loadframe);
         View loadView = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadView);
 
         v = LayoutInflater.from(mContext).inflate(R.layout.fragment_artistinfo, frameLayout, false);
-        artistName = (TextView) v.findViewById(R.id.artist_name);
-        artistInfoView = (TextView) v.findViewById(R.id.artist_info);
+        artistName = v.findViewById(R.id.artist_name);
+        artistInfoView = v.findViewById(R.id.artist_info);
         if (getArguments() != null) {
             artistid = getArguments().getString("id");
         }

@@ -8,12 +8,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -59,7 +59,7 @@ public class PlaylistSelectActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.actionbar_back);
@@ -74,14 +74,14 @@ public class PlaylistSelectActivity extends AppCompatActivity implements View.On
 
         pManager = PlaylistsManager.getInstance(this);
 
-        nextPlay = (LinearLayout) findViewById(R.id.select_next);
-        addtoPlaylist = (LinearLayout) findViewById(R.id.select_addtoplaylist);
-        delete = (LinearLayout) findViewById(R.id.select_del);
+        nextPlay = findViewById(R.id.select_next);
+        addtoPlaylist = findViewById(R.id.select_addtoplaylist);
+        delete = findViewById(R.id.select_del);
         nextPlay.setOnClickListener(this);
         addtoPlaylist.setOnClickListener(this);
         delete.setOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -365,10 +365,10 @@ public class PlaylistSelectActivity extends AppCompatActivity implements View.On
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.select_title_main);
-                this.title = (TextView) view.findViewById(R.id.select_title_small);
-                this.checkBox = (CheckBox) view.findViewById(R.id.select_checkbox);
-                this.move = (ImageView) view.findViewById(R.id.select_move);
+                this.mainTitle = view.findViewById(R.id.select_title_main);
+                this.title = view.findViewById(R.id.select_title_small);
+                this.checkBox = view.findViewById(R.id.select_checkbox);
+                this.move = view.findViewById(R.id.select_move);
 
             }
         }

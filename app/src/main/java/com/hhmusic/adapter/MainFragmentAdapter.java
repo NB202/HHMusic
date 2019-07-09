@@ -6,9 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -302,7 +302,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
             return 1;
         }
         if (itemResults.get(position) instanceof String) {
-            if (((String) itemResults.get(position)).equals("收藏的歌单"))
+            if (itemResults.get(position).equals("收藏的歌单"))
                 return 3;
         }
         return 2;
@@ -317,18 +317,18 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
 
         public ItemHolder(View view) {
             super(view);
-            this.image = (TintImageView) view.findViewById(R.id.fragment_main_item_img);
-            this.itemtitle = (TextView) view.findViewById(R.id.fragment_main_item_title);
-            this.count = (TextView) view.findViewById(R.id.fragment_main_item_count);
+            this.image = view.findViewById(R.id.fragment_main_item_img);
+            this.itemtitle = view.findViewById(R.id.fragment_main_item_title);
+            this.count = view.findViewById(R.id.fragment_main_item_count);
 
-            this.title = (TextView) view.findViewById(R.id.fragment_main_playlist_item_title);
-            this.songcount = (TextView) view.findViewById(R.id.fragment_main_playlist_item_count);
-            this.albumArt = (SimpleDraweeView) view.findViewById(R.id.fragment_main_playlist_item_img);
-            this.menu = (ImageView) view.findViewById(R.id.fragment_main_playlist_item_menu);
+            this.title = view.findViewById(R.id.fragment_main_playlist_item_title);
+            this.songcount = view.findViewById(R.id.fragment_main_playlist_item_count);
+            this.albumArt = view.findViewById(R.id.fragment_main_playlist_item_img);
+            this.menu = view.findViewById(R.id.fragment_main_playlist_item_menu);
 
-            this.sectionItem = (TextView) view.findViewById(R.id.expand_title);
-            this.sectionImg = (ImageView) view.findViewById(R.id.expand_img);
-            this.sectionMenu = (ImageView) view.findViewById(R.id.expand_menu);
+            this.sectionItem = view.findViewById(R.id.expand_title);
+            this.sectionImg = view.findViewById(R.id.expand_img);
+            this.sectionMenu = view.findViewById(R.id.expand_menu);
             view.setOnClickListener(this);
         }
 

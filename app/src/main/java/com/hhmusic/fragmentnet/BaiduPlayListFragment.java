@@ -6,9 +6,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
@@ -52,7 +52,7 @@ public class BaiduPlayListFragment extends AttachFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) view.findViewById(R.id.loadframe);
+        frameLayout = view.findViewById(R.id.loadframe);
         View loadView = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadView);
         return view;
@@ -64,7 +64,7 @@ public class BaiduPlayListFragment extends AttachFragment {
         if (isVisibleToUser) {
             if (view == null) {
                 view = LayoutInflater.from(mContext).inflate(R.layout.fram_recyclerview, frameLayout, false);
-                recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview_list);
+                recyclerView = view.findViewById(R.id.recyclerview_list);
                 gridLayoutManager = new GridLayoutManager(mContext, 2);
                 recyclerView.setLayoutManager(gridLayoutManager);
                 recyclerView.setHasFixedSize(true);
@@ -282,9 +282,9 @@ public class BaiduPlayListFragment extends AttachFragment {
 
             public ItemView(View itemView) {
                 super(itemView);
-                art = (SimpleDraweeView) itemView.findViewById(R.id.playlist_art);
-                name = (TextView) itemView.findViewById(R.id.playlist_name);
-                count = (TextView) itemView.findViewById(R.id.playlist_listen_count);
+                art = itemView.findViewById(R.id.playlist_art);
+                name = itemView.findViewById(R.id.playlist_name);
+                count = itemView.findViewById(R.id.playlist_listen_count);
             }
         }
 

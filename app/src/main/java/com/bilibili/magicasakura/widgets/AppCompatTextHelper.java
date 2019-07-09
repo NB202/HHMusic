@@ -2,7 +2,7 @@ package com.bilibili.magicasakura.widgets;
 
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorRes;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;

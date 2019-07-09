@@ -4,10 +4,10 @@ package com.hhmusic.dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -77,8 +77,8 @@ public class AddNetPlaylistDialog extends AttachDialogFragment {
 
         View view = inflater.inflate(R.layout.fragment_add_playlist, container);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.create_new_playlist);
-        recyclerView = (RecyclerView) view.findViewById(R.id.add_playlist_recyclerview);
+        LinearLayout linearLayout = view.findViewById(R.id.create_new_playlist);
+        recyclerView = view.findViewById(R.id.add_playlist_recyclerview);
 
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class AddNetPlaylistDialog extends AttachDialogFragment {
                 alertDialog.show();
                 Window window = alertDialog.getWindow();
                 window.setContentView(R.layout.dialog);
-                final EditText editText = (EditText) (window.findViewById(R.id.message));
+                final EditText editText = (window.findViewById(R.id.message));
                 editText.requestFocus();
                 (window.findViewById(R.id.positiveButton)).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -195,9 +195,9 @@ public class AddNetPlaylistDialog extends AttachDialogFragment {
 
             public ViewHolder(View v) {
                 super(v);
-                this.imageView = (SimpleDraweeView) v.findViewById(R.id.add_playlist_img);
-                this.title = (TextView) v.findViewById(R.id.add_playlist_toptext);
-                this.count = (TextView) v.findViewById(R.id.add_playlist_bottom_text);
+                this.imageView = v.findViewById(R.id.add_playlist_img);
+                this.title = v.findViewById(R.id.add_playlist_toptext);
+                this.count = v.findViewById(R.id.add_playlist_bottom_text);
                 v.setOnClickListener(this);
 
             }

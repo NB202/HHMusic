@@ -28,7 +28,7 @@ public class SearchAlbumInfo implements Parcelable {
     }
 
     public String getAuthor() {
-        return author;
+        return author.replace("<em>","").replace("</em>","");
     }
 
     public void setAuthor(String author) {
@@ -44,7 +44,7 @@ public class SearchAlbumInfo implements Parcelable {
     }
 
     public String getTitle() {
-        return title;
+        return title.replace("<em>","").replace("</em>","");
     }
 
     public void setTitle(String title) {

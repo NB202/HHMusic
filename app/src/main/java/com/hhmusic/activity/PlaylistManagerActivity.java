@@ -6,12 +6,12 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -50,7 +50,7 @@ public class PlaylistManagerActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist_manager);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.actionbar_back);
@@ -67,10 +67,10 @@ public class PlaylistManagerActivity extends AppCompatActivity implements View.O
         playlistInfo = PlaylistInfo.getInstance(this);
 
 
-        LinearLayout delete = (LinearLayout) findViewById(R.id.select_del);
+        LinearLayout delete = findViewById(R.id.select_del);
         delete.setOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -326,11 +326,11 @@ public class PlaylistManagerActivity extends AppCompatActivity implements View.O
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.select_title_main);
-                this.title = (TextView) view.findViewById(R.id.select_title_small);
-                this.checkBox = (CheckBox) view.findViewById(R.id.select_checkbox);
-                this.albumArt = (SimpleDraweeView) view.findViewById(R.id.playlist_album);
-                this.move = (ImageView) view.findViewById(R.id.select_move);
+                this.mainTitle = view.findViewById(R.id.select_title_main);
+                this.title = view.findViewById(R.id.select_title_small);
+                this.checkBox = view.findViewById(R.id.select_checkbox);
+                this.albumArt = view.findViewById(R.id.playlist_album);
+                this.move = view.findViewById(R.id.select_move);
 
             }
 

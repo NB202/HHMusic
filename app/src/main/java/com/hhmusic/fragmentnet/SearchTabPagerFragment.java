@@ -2,11 +2,11 @@ package com.hhmusic.fragmentnet;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,7 +97,7 @@ public class SearchTabPagerFragment extends AttachFragment {
                     return;
                 }
                 contentView = LayoutInflater.from(mContext).inflate(R.layout.fragment_net_tab, frameLayout, false);
-                viewPager = (ViewPager) contentView.findViewById(R.id.viewpager);
+                viewPager = contentView.findViewById(R.id.viewpager);
                 if (viewPager != null) {
                     Adapter adapter = new Adapter(getChildFragmentManager());
                     adapter.addFragment(SearchMusicFragment.newInstance(songResults), "单曲");
@@ -107,7 +107,7 @@ public class SearchTabPagerFragment extends AttachFragment {
                     viewPager.setOffscreenPageLimit(3);
                 }
 
-                TabLayout tabLayout = (TabLayout) contentView.findViewById(R.id.tabs);
+                TabLayout tabLayout = contentView.findViewById(R.id.tabs);
                 tabLayout.setupWithViewPager(viewPager);
                 viewPager.setCurrentItem(page);
                 tabLayout.setTabTextColors(R.color.text_color, ThemeUtils.getThemeColorStateList(mContext, R.color.theme_color_primary).getDefaultColor());
@@ -131,7 +131,7 @@ public class SearchTabPagerFragment extends AttachFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) rootView.findViewById(R.id.loadframe);
+        frameLayout = rootView.findViewById(R.id.loadframe);
         View loadview = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadview);
 

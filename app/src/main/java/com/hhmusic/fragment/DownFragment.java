@@ -8,12 +8,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,12 +54,12 @@ public class DownFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_down, container, false);
 
 
-        allStart = (LinearLayout) view.findViewById(R.id.down_start_all);
-        allStop = (LinearLayout) view.findViewById(R.id.down_pause_all);
-        clear = (LinearLayout) view.findViewById(R.id.down_clear_all);
+        allStart = view.findViewById(R.id.down_start_all);
+        allStop = view.findViewById(R.id.down_pause_all);
+        clear = view.findViewById(R.id.down_clear_all);
         setListener();
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
@@ -284,13 +284,13 @@ public class DownFragment extends Fragment {
 
             public ItemViewHolder(View itemView) {
                 super(itemView);
-                draweeView = (SimpleDraweeView) itemView.findViewById(R.id.down_img);
-                title = (TextView) itemView.findViewById(R.id.down_top_text);
-                count = (TextView) itemView.findViewById(R.id.down_count);
-                clear = (ImageView) itemView.findViewById(R.id.down_single_clear);
-                artist = (TextView) itemView.findViewById(R.id.down_artist);
-                downloaded = (ImageView) itemView.findViewById(R.id.downloaded);
-                progressBar = (ProgressBar) itemView.findViewById(R.id.down_progress);
+                draweeView = itemView.findViewById(R.id.down_img);
+                title = itemView.findViewById(R.id.down_top_text);
+                count = itemView.findViewById(R.id.down_count);
+                clear = itemView.findViewById(R.id.down_single_clear);
+                artist = itemView.findViewById(R.id.down_artist);
+                downloaded = itemView.findViewById(R.id.downloaded);
+                progressBar = itemView.findViewById(R.id.down_progress);
                 progressBar.setMax(100);
 
                 clear.setOnClickListener(new View.OnClickListener() {

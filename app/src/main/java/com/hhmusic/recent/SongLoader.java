@@ -82,7 +82,7 @@ public class SongLoader {
     }
 
     public static Song getSongForID(Context context, long id) {
-        return getSongForCursor(makeSongCursor(context, "_id=" + String.valueOf(id), null));
+        return getSongForCursor(makeSongCursor(context, "_id=" + id, null));
     }
 
     public static ArrayList<Song> searchSongs(Context context, String searchString) {

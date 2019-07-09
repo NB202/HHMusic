@@ -2,12 +2,12 @@ package com.hhmusic.activity;
 
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +36,7 @@ public class NetItemChangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_netmusic_item);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.actionbar_back);
@@ -48,7 +48,7 @@ public class NetItemChangeActivity extends AppCompatActivity {
             }
         });
 
-        TextView defaultPosition = (TextView) findViewById(R.id.default_item_position);
+        TextView defaultPosition = findViewById(R.id.default_item_position);
         defaultPosition.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         defaultPosition.getPaint().setAntiAlias(true);//抗锯齿
         defaultPosition.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class NetItemChangeActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
@@ -165,8 +165,8 @@ public class NetItemChangeActivity extends AppCompatActivity {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.text);
-                this.move = (ImageView) view.findViewById(R.id.move);
+                this.mainTitle = view.findViewById(R.id.text);
+                this.move = view.findViewById(R.id.move);
 
             }
 

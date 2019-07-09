@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -68,12 +68,12 @@ public class MainActivity extends BaseActivity implements CardPickerDialog.Click
         setContentView(R.layout.activity_main);
         getWindow().setBackgroundDrawableResource(R.color.background_material_light_1);
 
-        barnet = (ImageView) findViewById(R.id.bar_net);
-        barmusic = (ImageView) findViewById(R.id.bar_music);
-        search = (ImageView) findViewById(R.id.bar_search);
-        barmusic = (ImageView) findViewById(R.id.bar_music);
-        drawerLayout = (DrawerLayout) findViewById(R.id.fd);
-        mLvLeftMenu = (ListView) findViewById(R.id.id_lv_left_menu);
+        barnet = findViewById(R.id.bar_net);
+        barmusic = findViewById(R.id.bar_music);
+        search = findViewById(R.id.bar_search);
+        barmusic = findViewById(R.id.bar_music);
+        drawerLayout = findViewById(R.id.fd);
+        mLvLeftMenu = findViewById(R.id.id_lv_left_menu);
 
 
         mUserPreferencesUtil = UserPreferencesUtil.getInstance(this);
@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity implements CardPickerDialog.Click
 
 
     private void setToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity implements CardPickerDialog.Click
     private void setViewPager() {
         tabs.add(barnet);
         tabs.add(barmusic);
-        final CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.main_viewpager);
+        final CustomViewPager customViewPager = findViewById(R.id.main_viewpager);
         final MainFragment mainFragment = new MainFragment();
         final TabNetPagerFragment tabNetPagerFragment = new TabNetPagerFragment();
         CustomViewPagerAdapter customViewPagerAdapter = new CustomViewPagerAdapter(getSupportFragmentManager());
@@ -163,8 +163,8 @@ public class MainActivity extends BaseActivity implements CardPickerDialog.Click
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.nav_header_main, mLvLeftMenu, false);
         mLvLeftMenu.addHeaderView(view);
-        mAvatar = (SimpleDraweeView) view.findViewById(R.id.avatar);
-        mUsername = (TextView) view.findViewById(R.id.user_name);
+        mAvatar = view.findViewById(R.id.avatar);
+        mUsername = view.findViewById(R.id.user_name);
 
 
 

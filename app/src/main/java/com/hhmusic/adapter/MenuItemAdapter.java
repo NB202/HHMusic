@@ -3,7 +3,7 @@ package com.hhmusic.adapter;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v4.widget.TextViewCompat;
+import androidx.core.widget.TextViewCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;

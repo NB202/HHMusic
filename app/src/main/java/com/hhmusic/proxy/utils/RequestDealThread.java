@@ -62,7 +62,7 @@ public class RequestDealThread extends Thread {
             throws IOException {
 
         String httpString = HttpUtils.genResponseHeader(rangeStart, rangeEnd, fileLength);
-        byte[] httpHeader = httpString.toString().getBytes();
+        byte[] httpHeader = httpString.getBytes();
         client.getOutputStream().write(httpHeader, 0, httpHeader.length);
 
         if (audioCache != null && audioCache.length > 0) {
@@ -102,8 +102,7 @@ public class RequestDealThread extends Thread {
                 realRangeStart = originRangeStart;
             }
 
-            boolean isCacheEnough = (audioCache != null && audioCache.length == Constants.AUDIO_BUFFER_MAX_LENGTH) ? true
-                    : false;
+            boolean isCacheEnough = audioCache != null && audioCache.length == Constants.AUDIO_BUFFER_MAX_LENGTH;
 
 
             if (isCacheEnough && cacheFileSize > 0) {

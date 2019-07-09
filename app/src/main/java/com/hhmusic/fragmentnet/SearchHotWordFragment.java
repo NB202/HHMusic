@@ -3,9 +3,9 @@ package com.hhmusic.fragmentnet;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +44,7 @@ public class SearchHotWordFragment extends AttachFragment implements View.OnClic
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) view.findViewById(R.id.loadframe);
+        frameLayout = view.findViewById(R.id.loadframe);
         loadview = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadview);
         loadWords();
@@ -93,23 +93,23 @@ public class SearchHotWordFragment extends AttachFragment implements View.OnClic
                     return;
                 }
                 View view = LayoutInflater.from(mContext).inflate(R.layout.fragment_search_hot_words, frameLayout, false);
-                recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+                recyclerView = view.findViewById(R.id.recyclerview);
                 recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
                 recyclerView.setHasFixedSize(true);
                 adapter = new RecentSearchAdapter(mContext);
                 adapter.setListenter(SearchHotWordFragment.this);
                 recyclerView.setAdapter(adapter);
 
-                TextView text1 = (TextView) view.findViewById(R.id.text1);
-                TextView text2 = (TextView) view.findViewById(R.id.text2);
-                TextView text3 = (TextView) view.findViewById(R.id.text3);
-                TextView text4 = (TextView) view.findViewById(R.id.text4);
-                TextView text5 = (TextView) view.findViewById(R.id.text5);
-                TextView text6 = (TextView) view.findViewById(R.id.text6);
-                TextView text7 = (TextView) view.findViewById(R.id.text7);
-                TextView text8 = (TextView) view.findViewById(R.id.text8);
-                TextView text9 = (TextView) view.findViewById(R.id.text9);
-                TextView text10 = (TextView) view.findViewById(R.id.text10);
+                TextView text1 = view.findViewById(R.id.text1);
+                TextView text2 = view.findViewById(R.id.text2);
+                TextView text3 = view.findViewById(R.id.text3);
+                TextView text4 = view.findViewById(R.id.text4);
+                TextView text5 = view.findViewById(R.id.text5);
+                TextView text6 = view.findViewById(R.id.text6);
+                TextView text7 = view.findViewById(R.id.text7);
+                TextView text8 = view.findViewById(R.id.text8);
+                TextView text9 = view.findViewById(R.id.text9);
+                TextView text10 = view.findViewById(R.id.text10);
                 views.add(text1);
                 views.add(text2);
                 views.add(text3);

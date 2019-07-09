@@ -44,12 +44,12 @@ public class MusicDetailFragment extends AttachDialogFragment {
 
         View view = inflater.inflate(R.layout.fragment_music_detail, container);
 
-        title = (TextView) view.findViewById(R.id.music_detail_title);
-        name = (TextView) view.findViewById(R.id.music_detail_name);
-        time = (TextView) view.findViewById(R.id.music_detail_time);
+        title = view.findViewById(R.id.music_detail_title);
+        name = view.findViewById(R.id.music_detail_name);
+        time = view.findViewById(R.id.music_detail_time);
 
-        size = (TextView) view.findViewById(R.id.music_detail_size);
-        path = (TextView) view.findViewById(R.id.music_detail_path);
+        size = view.findViewById(R.id.music_detail_size);
+        path = view.findViewById(R.id.music_detail_path);
 
 
         title.setText(musicInfo.musicName);

@@ -26,7 +26,7 @@
         android:text="想调整首页栏目的顺序，"
         android:layout_height="30dp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_below="@+id/text"
         android:layout_width="match_parent"

@@ -8,12 +8,12 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -110,12 +110,12 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
             albumDes = getIntent().getStringExtra("albumdetail");
         }
         setContentView(R.layout.activity_playlist);
-        loadFrameLayout = (FrameLayout) findViewById(R.id.state_container);
+        loadFrameLayout = findViewById(R.id.state_container);
 
-        headerViewContent = (FrameLayout) findViewById(R.id.headerview);
-        headerDetail = (RelativeLayout) findViewById(R.id.headerdetail);
+        headerViewContent = findViewById(R.id.headerview);
+        headerDetail = findViewById(R.id.headerdetail);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         mHandler = HandlerUtil.getInstance(this);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
@@ -123,7 +123,7 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
         mStatusSize = CommonUtils.getStatusHeight(this);
 
 
-        tryAgain = (TextView) findViewById(R.id.try_again);
+        tryAgain = findViewById(R.id.try_again);
 
         setUpEverything();
 
@@ -155,14 +155,14 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
     }
 
     private void setHeaderView() {
-        albumArt = (ImageView) findViewById(R.id.album_art);
-        albumTitle = (TextView) findViewById(R.id.album_title);
-        albumArtSmall = (SimpleDraweeView) findViewById(R.id.playlist_art);
-        LinearLayout downAll = (LinearLayout) headerViewContent.findViewById(R.id.playlist_down);
+        albumArt = findViewById(R.id.album_art);
+        albumTitle = findViewById(R.id.album_title);
+        albumArtSmall = findViewById(R.id.playlist_art);
+        LinearLayout downAll = headerViewContent.findViewById(R.id.playlist_down);
         downAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new LoadAllDownInfos((Activity) AlbumsDetailActivity.this, mList).execute();
+                new LoadAllDownInfos(AlbumsDetailActivity.this, mList).execute();
             }
         });
 
@@ -176,7 +176,7 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
 
 
     private void setList() {
-        recyclerView = (ObservableRecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setScrollViewCallbacks(AlbumsDetailActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(AlbumsDetailActivity.this));
         recyclerView.setHasFixedSize(false);
@@ -533,9 +533,9 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
-                this.layout = (RelativeLayout) view.findViewById(R.id.play_all_layout);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
+                this.layout = view.findViewById(R.id.play_all_layout);
                 layout.setOnClickListener(this);
             }
 
@@ -569,11 +569,11 @@ public class AlbumsDetailActivity extends BaseActivity implements ObservableScro
 
             public ItemViewHolder(View view) {
                 super(view);
-                this.title = (TextView) view.findViewById(R.id.song_title);
-                this.artist = (TextView) view.findViewById(R.id.song_artist);
-                this.trackNumber = (TextView) view.findViewById(R.id.trackNumber);
-                this.menu = (ImageView) view.findViewById(R.id.popup_menu);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
+                this.title = view.findViewById(R.id.song_title);
+                this.artist = view.findViewById(R.id.song_artist);
+                this.trackNumber = view.findViewById(R.id.trackNumber);
+                this.menu = view.findViewById(R.id.popup_menu);
+                this.playState = view.findViewById(R.id.play_state);
                 view.setOnClickListener(this);
             }
 

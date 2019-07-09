@@ -195,11 +195,8 @@ public class PlaylistInfo {
                     PlaylistInfoColumns.PLAYLIST_ID + " = ?", new String[]
                             {String.valueOf(PlaylistId)}, null, null, null);
 
-            if (cursor != null && cursor.moveToFirst()) {
-                return true;
-            }
+            return cursor != null && cursor.moveToFirst();
 
-            return false;
         } finally {
             if (cursor != null) {
                 cursor.close();

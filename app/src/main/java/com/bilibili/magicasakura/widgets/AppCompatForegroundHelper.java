@@ -4,8 +4,8 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -135,7 +135,7 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mView.getForeground();
         } else if (mView instanceof FrameLayout) {
-            ((FrameLayout) mView).getForeground();
+            mView.getForeground();
         }
         return null;
     }
@@ -145,7 +145,7 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mView.setForeground(foreground);
         } else if (mView instanceof FrameLayout) {
-            ((FrameLayout) mView).setForeground(foreground);
+            mView.setForeground(foreground);
         }
     }
 

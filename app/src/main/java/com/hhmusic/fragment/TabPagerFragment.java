@@ -4,14 +4,14 @@ package com.hhmusic.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +65,7 @@ public class TabPagerFragment extends AttachDialogFragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_tab, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity) mContext).setSupportActionBar(toolbar);
         toolbar.setPadding(0, CommonUtils.getStatusHeight(mContext), 0, 0);
 
@@ -78,7 +78,7 @@ public class TabPagerFragment extends AttachDialogFragment {
                 mContext.onBackPressed();
             }
         });
-        ImageView search = (ImageView) rootView.findViewById(R.id.bar_search);
+        ImageView search = rootView.findViewById(R.id.bar_search);
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,13 +90,13 @@ public class TabPagerFragment extends AttachDialogFragment {
         });
 
 
-        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        viewPager = rootView.findViewById(R.id.viewpager);
         if (viewPager != null) {
             setupViewPager(viewPager);
             viewPager.setOffscreenPageLimit(3);
         }
 
-        final TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
+        final TabLayout tabLayout = rootView.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabTextColors(R.color.text_color, ThemeUtils.getThemeColorStateList(mContext, R.color.theme_color_primary).getDefaultColor());
 

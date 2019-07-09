@@ -7,10 +7,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -112,8 +112,8 @@ public class NetMoreFragment extends AttachDialogFragment {
         }
 
         View view = inflater.inflate(R.layout.more_fragment, container);
-        topTitle = (TextView) view.findViewById(R.id.pop_list_title);
-        recyclerView = (RecyclerView) view.findViewById(R.id.pop_list);
+        topTitle = view.findViewById(R.id.pop_list_title);
+        recyclerView = view.findViewById(R.id.pop_list);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);

@@ -1,7 +1,7 @@
 package com.hhmusic.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.hhmusic.R;
 import com.hhmusic.fragment.ArtistDetailFragment;

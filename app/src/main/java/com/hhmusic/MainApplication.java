@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.facebook.cache.disk.DiskCacheConfig;
@@ -21,7 +21,6 @@ import com.hhmusic.provider.PlaylistInfo;
 import com.hhmusic.uitl.IConstants;
 import com.hhmusic.uitl.PreferencesUtility;
 import com.hhmusic.uitl.ThemeHelper;
-import com.hhmusic.R;
 
 
 public class MainApplication extends Application implements ThemeUtils.switchColor {

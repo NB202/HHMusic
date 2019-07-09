@@ -26,7 +26,7 @@ public class SearchArtistInfo implements Parcelable {
     }
 
     public String getAuthor() {
-        return author;
+        return author.replace("<em>","").replace("</em>","");
     }
 
     public void setAuthor(String author) {

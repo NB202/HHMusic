@@ -4,9 +4,9 @@ package com.hhmusic.fragmentnet;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +59,7 @@ public class RankingFragment extends AttachFragment {
         if (isVisibleToUser) {
             if (view == null) {
                 view = LayoutInflater.from(mContext).inflate(R.layout.ranking, null, false);
-                recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+                recyclerView = view.findViewById(R.id.recyclerview);
                 linearLayoutManager = new LinearLayoutManager(mContext);
                 recyclerView.setLayoutManager(linearLayoutManager);
                 rankingAdapter = new RankingAdapter();
@@ -74,7 +74,7 @@ public class RankingFragment extends AttachFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.load_framelayout, container, false);
-        frameLayout = (FrameLayout) view.findViewById(R.id.loadframe);
+        frameLayout = view.findViewById(R.id.loadframe);
         View loadView = LayoutInflater.from(mContext).inflate(R.layout.loading, frameLayout, false);
         frameLayout.addView(loadView);
 
@@ -196,10 +196,10 @@ public class RankingFragment extends AttachFragment {
 
             public RankingViewHolder(View itemView) {
                 super(itemView);
-                draweeView = (SimpleDraweeView) itemView.findViewById(R.id.item_image);
-                textView1 = (TextView) itemView.findViewById(R.id.rank_first_txt);
-                textView2 = (TextView) itemView.findViewById(R.id.rank_second_txt);
-                textView3 = (TextView) itemView.findViewById(R.id.rank_third_txt);
+                draweeView = itemView.findViewById(R.id.item_image);
+                textView1 = itemView.findViewById(R.id.rank_first_txt);
+                textView2 = itemView.findViewById(R.id.rank_second_txt);
+                textView3 = itemView.findViewById(R.id.rank_third_txt);
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

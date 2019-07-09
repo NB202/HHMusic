@@ -9,11 +9,11 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -106,19 +106,19 @@ public class RankPlaylistActivity extends BaseActivity implements ObservableScro
         }
         mContext = this;
         setContentView(R.layout.activity_rank_playlist);
-        loadFrameLayout = (FrameLayout) findViewById(R.id.state_container);
+        loadFrameLayout = findViewById(R.id.state_container);
 
-        headerViewContent = (FrameLayout) findViewById(R.id.headerview);
-        headerDetail = (RelativeLayout) findViewById(R.id.headerdetail);
+        headerViewContent = findViewById(R.id.headerview);
+        headerDetail = findViewById(R.id.headerdetail);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         mHandler = HandlerUtil.getInstance(this);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = CommonUtils.getActionBarHeight(this);
         mStatusSize = CommonUtils.getStatusHeight(this);
 
-        tryAgain = (TextView) findViewById(R.id.try_again);
+        tryAgain = findViewById(R.id.try_again);
 
         setUpEverything();
 
@@ -153,9 +153,9 @@ public class RankPlaylistActivity extends BaseActivity implements ObservableScro
 
 
     private void setHeaderView() {
-        albumArt = (ImageView) findViewById(R.id.album_art);
-        playlistTitleView = (TextView) findViewById(R.id.album_title);
-        playlistDetailView = (TextView) findViewById(R.id.album_details);
+        albumArt = findViewById(R.id.album_art);
+        playlistTitleView = findViewById(R.id.album_title);
+        playlistDetailView = findViewById(R.id.album_details);
 
 
         tryAgain.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +169,7 @@ public class RankPlaylistActivity extends BaseActivity implements ObservableScro
     }
 
     private void setList() {
-        recyclerView = (ObservableRecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setScrollViewCallbacks(RankPlaylistActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(RankPlaylistActivity.this));
         recyclerView.setHasFixedSize(true);
@@ -513,9 +513,9 @@ public class RankPlaylistActivity extends BaseActivity implements ObservableScro
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
-                this.layout = (RelativeLayout) view.findViewById(R.id.play_all_layout);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
+                this.layout = view.findViewById(R.id.play_all_layout);
                 layout.setOnClickListener(this);
             }
 
@@ -548,11 +548,11 @@ public class RankPlaylistActivity extends BaseActivity implements ObservableScro
 
             public ItemViewHolder(View view) {
                 super(view);
-                this.title = (TextView) view.findViewById(R.id.song_title);
-                this.artist = (TextView) view.findViewById(R.id.song_artist);
-                this.trackNumber = (TextView) view.findViewById(R.id.trackNumber);
-                this.menu = (ImageView) view.findViewById(R.id.popup_menu);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
+                this.title = view.findViewById(R.id.song_title);
+                this.artist = view.findViewById(R.id.song_artist);
+                this.trackNumber = view.findViewById(R.id.trackNumber);
+                this.menu = view.findViewById(R.id.popup_menu);
+                this.playState = view.findViewById(R.id.play_state);
                 view.setOnClickListener(this);
             }
 

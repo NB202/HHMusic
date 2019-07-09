@@ -3,10 +3,10 @@ package com.hhmusic.fragment;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -68,15 +68,15 @@ public class AlbumFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recylerview, container, false);
         isAZSort = mPreferences.getAlbumSortOrder().equals(SortOrder.AlbumSortOrder.ALBUM_A_Z);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         mAdapter = new AlbumAdapter(null);
         recyclerView.setAdapter(mAdapter);
         setItemDecoration();
-        dialogText = (TextView) view.findViewById(R.id.dialog_text);
-        sideBar = (SideBar) view.findViewById(R.id.sidebar);
+        dialogText = view.findViewById(R.id.dialog_text);
+        sideBar = view.findViewById(R.id.sidebar);
         sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
             @Override
             public void onTouchingLetterChanged(String s) {
@@ -235,7 +235,7 @@ public class AlbumFragment extends BaseFragment {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             AlbumInfo model = mList.get(position);
-            ((ListItemViewHolder) holder).title.setText(model.album_name.toString());
+            ((ListItemViewHolder) holder).title.setText(model.album_name);
             ((ListItemViewHolder) holder).title2.setText(model.number_of_songs + "首" + model.album_artist);
             ((ListItemViewHolder) holder).draweeView.setImageURI(Uri.parse(model.album_art + ""));
 
@@ -262,10 +262,10 @@ public class AlbumFragment extends BaseFragment {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.title = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-                this.title2 = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-                this.draweeView = (SimpleDraweeView) view.findViewById(R.id.viewpager_list_img);
-                this.moreOverflow = (TintImageView) view.findViewById(R.id.viewpager_list_button);
+                this.title = view.findViewById(R.id.viewpager_list_toptext);
+                this.title2 = view.findViewById(R.id.viewpager_list_bottom_text);
+                this.draweeView = view.findViewById(R.id.viewpager_list_img);
+                this.moreOverflow = view.findViewById(R.id.viewpager_list_button);
                 moreOverflow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

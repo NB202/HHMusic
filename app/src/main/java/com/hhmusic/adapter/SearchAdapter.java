@@ -1,8 +1,8 @@
 package com.hhmusic.adapter;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,10 +78,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ItemHolder
 
         public ItemHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-            this.songartist = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-            this.albumArt = (ImageView) view.findViewById(R.id.play_state);
-            this.menu = (ImageView) view.findViewById(R.id.viewpager_list_button);
+            this.title = view.findViewById(R.id.viewpager_list_toptext);
+            this.songartist = view.findViewById(R.id.viewpager_list_bottom_text);
+            this.albumArt = view.findViewById(R.id.play_state);
+            this.menu = view.findViewById(R.id.viewpager_list_button);
 
             view.setOnClickListener(this);
         }

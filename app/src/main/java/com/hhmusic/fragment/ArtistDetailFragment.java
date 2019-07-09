@@ -4,11 +4,11 @@ package com.hhmusic.fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +62,7 @@ public class ArtistDetailFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_common, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
         artDetailAdapter = new ArtDetailAdapter(null);
@@ -72,7 +72,7 @@ public class ArtistDetailFragment extends BaseFragment {
         reloadAdapter();
 
         ArtistInfo artistInfo = MusicUtils.getArtistinfo(mContext, artistID);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        toolbar = view.findViewById(R.id.toolbar);
         toolbar.setPadding(0, CommonUtils.getStatusHeight(mContext), 0, 0);
         ((AppCompatActivity) mContext).setSupportActionBar(toolbar);
         ab = ((AppCompatActivity) mContext).getSupportActionBar();
@@ -108,7 +108,7 @@ public class ArtistDetailFragment extends BaseFragment {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(final Void... unused) {
-                ArrayList<MusicInfo> artistList = (ArrayList) MusicUtils.queryMusic(mContext, artistID + "", IConstants.START_FROM_ARTIST);
+                ArrayList<MusicInfo> artistList = MusicUtils.queryMusic(mContext, artistID + "", IConstants.START_FROM_ARTIST);
                 artDetailAdapter.updateDataSet(artistList);
                 return null;
             }
@@ -194,8 +194,8 @@ public class ArtistDetailFragment extends BaseFragment {
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
                 view.setOnClickListener(this);
             }
 
@@ -230,10 +230,10 @@ public class ArtistDetailFragment extends BaseFragment {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-                this.title = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
-                this.moreOverflow = (ImageView) view.findViewById(R.id.viewpager_list_button);
+                this.mainTitle = view.findViewById(R.id.viewpager_list_toptext);
+                this.title = view.findViewById(R.id.viewpager_list_bottom_text);
+                this.playState = view.findViewById(R.id.play_state);
+                this.moreOverflow = view.findViewById(R.id.viewpager_list_button);
                 view.setOnClickListener(this);
 
                 moreOverflow.setOnClickListener(new View.OnClickListener() {

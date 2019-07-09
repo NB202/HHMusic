@@ -5,7 +5,7 @@ import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,13 +73,13 @@ public class QuickControlsFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.bottom_nav, container, false);
         this.rootView = rootView;
-        mPlayPause = (TintImageView) rootView.findViewById(R.id.control);
-        mProgress = (TintProgressBar) rootView.findViewById(R.id.song_progress_normal);
-        mTitle = (TextView) rootView.findViewById(R.id.playbar_info);
-        mArtist = (TextView) rootView.findViewById(R.id.playbar_singer);
-        mAlbumArt = (SimpleDraweeView) rootView.findViewById(R.id.playbar_img);
-        next = (ImageView) rootView.findViewById(R.id.play_next);
-        playQueue = (ImageView) rootView.findViewById(R.id.play_list);
+        mPlayPause = rootView.findViewById(R.id.control);
+        mProgress = rootView.findViewById(R.id.song_progress_normal);
+        mTitle = rootView.findViewById(R.id.playbar_info);
+        mArtist = rootView.findViewById(R.id.playbar_singer);
+        mAlbumArt = rootView.findViewById(R.id.playbar_img);
+        next = rootView.findViewById(R.id.play_next);
+        playQueue = rootView.findViewById(R.id.play_list);
 
         mProgress.setProgressTintList(ThemeUtils.getThemeColorStateList(mContext, R.color.theme_color_primary));
         mProgress.postDelayed(mUpdateProgress,0);

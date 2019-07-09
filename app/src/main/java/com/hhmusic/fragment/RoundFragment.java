@@ -6,8 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +59,7 @@ public class RoundFragment extends Fragment {
         }
 
 
-        sdv = (SimpleDraweeView) rootView.findViewById(R.id.sdv);
+        sdv = rootView.findViewById(R.id.sdv);
 
 
 
@@ -138,7 +138,7 @@ public class RoundFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        animatorWeakReference = new WeakReference(ObjectAnimator.ofFloat(getView(), "rotation", new float[]{0.0F, 360.0F}));
+        animatorWeakReference = new WeakReference(ObjectAnimator.ofFloat(getView(), "rotation", 0.0F, 360.0F));
         animator = animatorWeakReference.get();
 
         animator.setRepeatCount(Integer.MAX_VALUE);

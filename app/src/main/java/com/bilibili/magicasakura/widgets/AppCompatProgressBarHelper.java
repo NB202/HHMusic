@@ -4,7 +4,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +17,7 @@ import com.hhmusic.R;
 
 
 public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
-    private static final int ATTR[] = new int[]{
+    private static final int[] ATTR = new int[]{
             R.attr.progressTint,
             R.attr.progressIndeterminateTint
     };

@@ -3,11 +3,11 @@ package com.hhmusic.fragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -62,7 +62,7 @@ public class FolderFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.recylerview, container, false);
 
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -71,8 +71,8 @@ public class FolderFragment extends BaseFragment {
         recyclerView.setHasFixedSize(true);
         setItemDecoration();
         isAZSort = mPreferences.getFoloerSortOrder().equals(SortOrder.FolderSortOrder.FOLDER_A_Z);
-        dialogText = (TextView) view.findViewById(R.id.dialog_text);
-        sideBar = (SideBar) view.findViewById(R.id.sidebar);
+        dialogText = view.findViewById(R.id.dialog_text);
+        sideBar = view.findViewById(R.id.sidebar);
         sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
             @Override
             public void onTouchingLetterChanged(String s) {
@@ -241,10 +241,10 @@ public class FolderFragment extends BaseFragment {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.Maintitle = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-                this.title = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-                this.moreOverflow = (TintImageView) view.findViewById(R.id.viewpager_list_button);
-                this.imageView = (ImageView) view.findViewById(R.id.viewpager_list_img);
+                this.Maintitle = view.findViewById(R.id.viewpager_list_toptext);
+                this.title = view.findViewById(R.id.viewpager_list_bottom_text);
+                this.moreOverflow = view.findViewById(R.id.viewpager_list_button);
+                this.imageView = view.findViewById(R.id.viewpager_list_img);
                 moreOverflow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

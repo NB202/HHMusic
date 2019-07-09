@@ -4,11 +4,11 @@ package com.hhmusic.fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,21 +67,21 @@ public class FolderDetailFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_common, container, false);
 
         layoutManager = new LinearLayoutManager(mContext);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(layoutManager);
         folderDetailAdapter = new FolderDetailAdapter(null);
         recyclerView.setAdapter(folderDetailAdapter);
         setItemDecoration();
         reloadAdapter();
         recyclerView.setHasFixedSize(true);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity) mContext).setSupportActionBar(toolbar);
         toolbar.setPadding(0, CommonUtils.getStatusHeight(mContext), 0, 0);
         ab = ((AppCompatActivity) mContext).getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.actionbar_back);
         ab.setDisplayHomeAsUpEnabled(true);
-        String folder = folder_path.substring(folder_path.lastIndexOf(File.separator), folder_path.length());
-        ab.setTitle(folder.substring(folder.lastIndexOf(File.separator) + 1, folder.length()));
+        String folder = folder_path.substring(folder_path.lastIndexOf(File.separator));
+        ab.setTitle(folder.substring(folder.lastIndexOf(File.separator) + 1));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,8 +186,6 @@ public class FolderDetailFragment extends BaseFragment {
             return (null != mList ? mList.size() + 1 : 0);
         }
 
-        ;
-
 
         class CommonItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             TextView textView;
@@ -195,8 +193,8 @@ public class FolderDetailFragment extends BaseFragment {
 
             CommonItemViewHolder(View view) {
                 super(view);
-                this.textView = (TextView) view.findViewById(R.id.play_all_number);
-                this.select = (ImageView) view.findViewById(R.id.select);
+                this.textView = view.findViewById(R.id.play_all_number);
+                this.select = view.findViewById(R.id.select);
                 view.setOnClickListener(this);
             }
 
@@ -231,10 +229,10 @@ public class FolderDetailFragment extends BaseFragment {
 
             ListItemViewHolder(View view) {
                 super(view);
-                this.mainTitle = (TextView) view.findViewById(R.id.viewpager_list_toptext);
-                this.title = (TextView) view.findViewById(R.id.viewpager_list_bottom_text);
-                this.playState = (TintImageView) view.findViewById(R.id.play_state);
-                this.moreOverflow = (ImageView) view.findViewById(R.id.viewpager_list_button);
+                this.mainTitle = view.findViewById(R.id.viewpager_list_toptext);
+                this.title = view.findViewById(R.id.viewpager_list_bottom_text);
+                this.playState = view.findViewById(R.id.play_state);
+                this.moreOverflow = view.findViewById(R.id.viewpager_list_button);
 
 
                 moreOverflow.setOnClickListener(new View.OnClickListener() {

@@ -24,7 +24,7 @@
             android:text="歌曲："
             android:textSize="13.5sp" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pop_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
