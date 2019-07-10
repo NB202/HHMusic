@@ -29,7 +29,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.hhmusic.MainApplication;
 import com.hhmusic.R;
 import com.hhmusic.activity.PlayingActivity;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.service.MusicPlayer;
 
 public class QuickControlsFragment extends BaseFragment {
@@ -183,7 +183,9 @@ public class QuickControlsFragment extends BaseFragment {
             };
             Uri uri = null;
             try{
-                uri = Uri.parse(MusicPlayer.getAlbumPath());
+                String path=MusicPlayer.getAlbumPath();
+                if (path==null)return;
+                uri = Uri.parse(path);
             }catch (Exception e){
                 e.printStackTrace();
             }

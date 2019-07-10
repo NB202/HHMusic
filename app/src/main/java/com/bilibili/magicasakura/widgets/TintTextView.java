@@ -71,7 +71,6 @@ public class TintTextView extends TextView implements Tintable, AppCompatBackgro
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void setTextAppearance(int resId) {
         super.setTextAppearance(resId);

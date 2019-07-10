@@ -22,7 +22,7 @@ import com.bilibili.magicasakura.widgets.TintImageView;
 import com.github.promeg.pinyinhelper.Pinyin;
 import com.hhmusic.R;
 import com.hhmusic.activity.SelectActivity;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.service.MusicPlayer;
 import com.hhmusic.uitl.Comparator.MusicComparator;

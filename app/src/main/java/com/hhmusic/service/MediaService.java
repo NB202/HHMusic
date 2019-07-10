@@ -120,7 +120,7 @@ public class MediaService extends Service {
     public static final String PREVIOUS_ACTION = "com.hhmusic.previous";
     public static final String PREVIOUS_FORCE_ACTION = "com.hhmusic.previous.force";
     public static final String NEXT_ACTION = "com.hhmusic.next";
-    public static final String MUSIC_CHANGED = "com.wm.remusi.change_music";
+    public static final String MUSIC_CHANGED = "com.hhmusic.change_music";
     public static final String REPEAT_ACTION = "com.hhmusic.repeat";
     public static final String SHUFFLE_ACTION = "com.hhmusic.shuffle";
     public static final String FROM_MEDIA_BUTTON = "frommediabutton";
@@ -977,12 +977,26 @@ public class MediaService extends Service {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             if (lrc == null) {
-
                 lrc = HttpUtil.getResposeJsonObject(API.getLyric(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
                 Log.d(TAG, "run: ===================" + lrc);
+                if (lrc == null){
+                    lrc = HttpUtil.getResposeJsonObject(API.getLyricwy(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
+                }
+                if (lrc == null){
+                    lrc = HttpUtil.getResposeJsonObject(API.getLyricqq(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
+                }
+                if (lrc == null) {
+                    lrc = HttpUtil.getResposeJsonObject(API.getLyrickugou(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
+                }
+                if (lrc == null) {
+                    lrc = HttpUtil.getResposeJsonObject(API.getLyrickuwo(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
+                }
+                if (lrc == null) {
+                    lrc = HttpUtil.getResposeJsonObject(API.getLyricbaidu(musicInfo.songId + "")).get("lrc").getAsJsonObject().get("lyric").getAsString();
+                }
             }
+
             if (!stop) {
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + LRC_PATH + musicInfo.songId);
                 try {
@@ -992,12 +1006,11 @@ public class MediaService extends Service {
                         writeToFile(file, lrc);
                         mPlayerHandler.sendEmptyMessage(LRC_DOWNLOADED);
                     }
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-
-
         }
     }
 

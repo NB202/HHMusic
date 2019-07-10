@@ -52,41 +52,6 @@ public class API {
         return sb.toString();
     }
 
-
-    /**
-     * 获取歌词信息
-     *
-     * @param songid 歌曲id
-     * @return
-     */
-    public static String getLyricInfo(String songid) {
-        StringBuffer sb = new StringBuffer(SONG_LYRIC_BASE);
-        sb.append("&id=").append(songid)
-                .append("&id=-1&kv=-1&tv=-1");
-        Log.d(TAG, "getLyricInfo: " + sb.toString());
-        return sb.toString();
-    }
-
-
-    /**
-     * 获取歌曲详情信息
-     *
-     * @param songid
-     * @return
-     */
-    public static String getSongDetail(String songid) {
-        StringBuffer sb = new StringBuffer(SONG_DETAIL_BASE);
-        sb.append(songid)
-                .append("&ids=[")
-                .append(songid)
-                .append("]");
-        Log.d(TAG, "getSongDetail: " + sb.toString());
-        return sb.toString();
-    }
-
-
-
-
     /**
      * 获取歌曲Mp3地址
      *
@@ -110,7 +75,43 @@ public class API {
      * @return
      */
     public static String getLyric(String songid) {
+        String base = "https://api.imjad.cn/cloudmusic/?type=lyric&id=";
+        StringBuffer sb = new StringBuffer(base);
+        sb.append(songid);
+        Log.d(TAG, "getLyric: " + sb.toString());
+        return sb.toString();
+    }
+
+    public static String getLyricwy(String songid) {
         String base = "https://v1.itooi.cn/netease/lrc?id=";
+        StringBuffer sb = new StringBuffer(base);
+        sb.append(songid);
+        Log.d(TAG, "getLyric: " + sb.toString());
+        return sb.toString();
+    }
+    public static String getLyricqq(String songid) {
+        String base = "https://v1.itooi.cn/tencent/lrc?id=";
+        StringBuffer sb = new StringBuffer(base);
+        sb.append(songid);
+        Log.d(TAG, "getLyric: " + sb.toString());
+        return sb.toString();
+    }
+    public static String getLyrickugou(String songid) {
+        String base = "https://v1.itooi.cn/kugou/lrc?id=";
+        StringBuffer sb = new StringBuffer(base);
+        sb.append(songid);
+        Log.d(TAG, "getLyric: " + sb.toString());
+        return sb.toString();
+    }
+    public static String getLyrickuwo(String songid) {
+        String base = "https://v1.itooi.cn/kugwo/lrc?id=";
+        StringBuffer sb = new StringBuffer(base);
+        sb.append(songid);
+        Log.d(TAG, "getLyric: " + sb.toString());
+        return sb.toString();
+    }
+    public static String getLyricbaidu(String songid) {
+        String base = "https://v1.itooi.cn/baidu/lrc?id=";
         StringBuffer sb = new StringBuffer(base);
         sb.append(songid);
         Log.d(TAG, "getLyric: " + sb.toString());
@@ -125,12 +126,6 @@ public class API {
         return sb.toString();
     }
 
-
-    //POST请求
-    public static String SEARCH = "http://localhost:3000/search?keywords=";
-    // 'type': stype,搜索单曲(1)，歌手(100)，专辑(10)，歌单(1000)，用户(1002) *(type)*
-
-    // 百度音乐
     // GET
     public static String SONG_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.1.6&format=entity&method=baidu.ting.song.play&songid=";
 }

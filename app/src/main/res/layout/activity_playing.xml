@@ -49,8 +49,7 @@
                     android:layout_height="263dp"
                     android:layout_marginTop="60dp"
                     android:layout_centerHorizontal="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/play_disc_halo" />
+                    android:scaleType="fitCenter" />
 
                 <com.hhmusic.widget.AlbumViewPager
                     android:id="@+id/view_pager"
@@ -75,9 +74,11 @@
                     android:layout_below="@+id/view_line"
                     android:layout_marginRight="100dp"
                     android:layout_marginTop="-16dp"
+                    android:rotation="-30"
                     android:src="@drawable/list_detail_cover_dark"
                     android:transformPivotX="15.1dp"
                     android:transformPivotY="15.1dp" />
+
             </RelativeLayout>
 
         </FrameLayout>

@@ -15,9 +15,5 @@ public interface ILrcView {
 
     void seekTo(int progress, boolean fromSeekBar, boolean fromSeekBarByUser);
 
-
-    void setLrcScalingFactor(float scalingFactor);
-
-
     void reset();
 }

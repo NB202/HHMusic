@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.bilibili.magicasakura.widgets.TintImageView;
 import com.hhmusic.R;
 import com.hhmusic.dialog.AddNetPlaylistDialog;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.provider.MusicPlaybackState;
 import com.hhmusic.recent.QueueLoader;

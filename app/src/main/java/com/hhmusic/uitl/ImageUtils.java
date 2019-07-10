@@ -12,7 +12,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import androidx.renderscript.RenderScript;
+import android.renderscript.RenderScript;
+
 import android.util.Log;
 
 import java.io.ByteArrayInputStream;
@@ -49,9 +50,9 @@ public class ImageUtils {
         ByteArrayInputStream bis = new ByteArrayInputStream(imageInByte);
         Bitmap blurTemplate = BitmapFactory.decodeStream(bis, null, options);
 
-        final androidx.renderscript.Allocation input = androidx.renderscript.Allocation.createFromBitmap(rs, blurTemplate);
-        final androidx.renderscript.Allocation output = androidx.renderscript.Allocation.createTyped(rs, input.getType());
-        final androidx.renderscript.ScriptIntrinsicBlur script = androidx.renderscript.ScriptIntrinsicBlur.create(rs, androidx.renderscript.Element.U8_4(rs));
+        final android.renderscript.Allocation input = android.renderscript.Allocation.createFromBitmap(rs, blurTemplate);
+        final android.renderscript.Allocation output = android.renderscript.Allocation.createTyped(rs, input.getType());
+        final android.renderscript.ScriptIntrinsicBlur script = android.renderscript.ScriptIntrinsicBlur.create(rs, android.renderscript.Element.U8_4(rs));
         script.setRadius(8f);
         script.setInput(input);
         script.forEach(output);

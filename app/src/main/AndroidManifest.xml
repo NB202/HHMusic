@@ -118,7 +118,7 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.hhmusic.metachanged" />
-                <action android:name="com.wm.remusi.change_music" />
+                <action android:name="com.hhmusic.change_music" />
                 <action android:name="com.hhmusic.progress" />
             </intent-filter>
 

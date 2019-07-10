@@ -79,7 +79,6 @@ public class TintCheckBox extends CheckBox implements Tintable, AppCompatBackgro
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void setTextAppearance(int resId) {
         super.setTextAppearance(resId);

@@ -15,7 +15,6 @@ import com.facebook.imagepipeline.cache.MemoryCacheParams;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.google.gson.Gson;
-import com.hhmusic.handler.UnceHandler;
 import com.hhmusic.permissions.Nammu;
 import com.hhmusic.provider.PlaylistInfo;
 import com.hhmusic.uitl.IConstants;
@@ -106,11 +105,7 @@ public class MainApplication extends Application implements ThemeUtils.switchCol
 
 
 
-    public void initCatchException() {
 
-        UnceHandler catchExcep = new UnceHandler(this);
-        Thread.setDefaultUncaughtExceptionHandler(catchExcep);
-    }
 
     @Override
     public void onCreate() {
@@ -128,7 +123,7 @@ public class MainApplication extends Application implements ThemeUtils.switchCol
         }
         ThemeUtils.setSwitchColor(this);
 
-        initCatchException();
+
 
         if (!PreferencesUtility.getInstance(this).getFavriateMusicPlaylist()) {
             PlaylistInfo.getInstance(this).addPlaylist(favPlaylist, getResources().getString(R.string.my_fav_playlist),

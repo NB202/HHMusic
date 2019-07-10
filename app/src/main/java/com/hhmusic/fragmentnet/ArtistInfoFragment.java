@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 import com.hhmusic.MainApplication;
 import com.hhmusic.R;
 import com.hhmusic.fragment.AttachFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.entity.ArtistInfo;
 import com.hhmusic.api.BMA;
 import com.hhmusic.api.HttpUtil;

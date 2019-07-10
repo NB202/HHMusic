@@ -53,7 +53,7 @@ import com.hhmusic.R;
 import com.hhmusic.downmusic.Down;
 import com.hhmusic.fragment.MoreFragment;
 import com.hhmusic.fragment.NetMoreFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.entity.RadioInfo;
 import com.hhmusic.api.BMA;

@@ -20,7 +20,7 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.hhmusic.R;
 import com.hhmusic.fragment.BaseFragment;
 import com.hhmusic.fragment.MoreFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.service.MusicPlayer;
 import com.hhmusic.uitl.IConstants;

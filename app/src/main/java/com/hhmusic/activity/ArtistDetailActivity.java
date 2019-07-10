@@ -35,7 +35,7 @@ import com.hhmusic.MainApplication;
 import com.hhmusic.R;
 import com.hhmusic.fragmentnet.ArtistInfoFragment;
 import com.hhmusic.fragmentnet.ArtistInfoMusicFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.entity.ArtistInfo;
 import com.hhmusic.entity.GeDanGeInfo;

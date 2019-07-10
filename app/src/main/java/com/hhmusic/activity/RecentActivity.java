@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.hhmusic.R;
 import com.hhmusic.fragment.MoreFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.provider.RecentStore;
 import com.hhmusic.recent.Song;

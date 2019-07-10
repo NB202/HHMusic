@@ -143,7 +143,6 @@ public class AlbumFragment extends BaseFragment {
         recyclerView.addItemDecoration(itemDecoration);
     }
 
-
     public void reloadAdapter() {
         new AsyncTask<Void, Void, Void>() {
             @Override

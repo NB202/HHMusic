@@ -378,19 +378,6 @@ public class LrcView extends View implements ILrcView {
     };
 
 
-    @Override
-    public void setLrcScalingFactor(float scalingFactor) {
-        mCurScalingFactor = scalingFactor;
-        mCurSizeForHightLightLrc = DEFAULT_SIZE_FOR_HIGHT_LIGHT_LRC * mCurScalingFactor;
-        mCurSizeForOtherLrc = DEFAULT_SIZE_FOR_OTHER_LRC * mCurScalingFactor;
-        mCurPadding = DEFAULT_PADDING * mCurScalingFactor;
-        mTotleDrawRow = (int) (getHeight() / (mCurSizeForOtherLrc + mCurPadding)) + 3;
-        log("mRowTotal=" + mTotleDrawRow);
-        scrollTo(getScrollX(), (int) (mCurRow * (mCurSizeForOtherLrc + mCurPadding)));
-        invalidate();
-        mScroller.forceFinished(true);
-    }
-
 
     @Override
     public void reset() {

@@ -37,7 +37,7 @@ import com.hhmusic.MainApplication;
 import com.hhmusic.R;
 import com.hhmusic.fragment.MoreFragment;
 import com.hhmusic.fragment.NetMoreFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.entity.BillboardJson;
 import com.hhmusic.entity.MusicDetailInfo;

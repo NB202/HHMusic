@@ -35,7 +35,7 @@ import com.hhmusic.adapter.MusicFlowAdapter;
 import com.hhmusic.adapter.OverFlowAdapter;
 import com.hhmusic.adapter.OverFlowItem;
 import com.hhmusic.dialog.AddNetPlaylistDialog;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.entity.SearchAlbumInfo;
 import com.hhmusic.entity.SearchArtistInfo;

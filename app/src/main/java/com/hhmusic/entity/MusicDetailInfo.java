@@ -1,10 +1,10 @@
 package com.hhmusic.entity;
 
 
+import com.hhmusic.api.API;
+
 public class MusicDetailInfo {
-
-
-
+    private API mapi;
     private String artist_id;
     private String all_artist_id;
     private String album_no;

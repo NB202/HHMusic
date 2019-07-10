@@ -54,7 +54,7 @@ import com.hhmusic.dialog.LoadAllDownInfos;
 import com.hhmusic.dialog.LoadAllNeteaseDownInfos;
 import com.hhmusic.fragment.MoreFragment;
 import com.hhmusic.fragment.NetMoreFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.info.MusicInfo;
 import com.hhmusic.entity.GeDanGeInfo;
 import com.hhmusic.entity.MusicDetailInfo;
@@ -480,7 +480,16 @@ public class PlaylistActivity extends BaseActivity implements ObservableScrollVi
                         musicInfo.albumName = mTracksBeanArrayList.get(i).getAlbum().getName();
                         musicInfo.albumId = mTracksBeanArrayList.get(i).getAlbum().getId();
                         musicInfo.artistId = mTracksBeanArrayList.get(i).getArtists().get(0).getId();
-                        musicInfo.lrc = API.getLyric(musicInfo.songId + "");
+                        if (musicInfo.lrc == null)
+                            musicInfo.lrc = API.getLyricqq(musicInfo.songId + "");
+                        if (musicInfo.lrc == null)
+                            musicInfo.lrc = API.getLyricwy(musicInfo.songId + "");
+                        if (musicInfo.lrc == null)
+                            musicInfo.lrc = API.getLyrickugou(musicInfo.songId + "");
+                        if (musicInfo.lrc == null)
+                            musicInfo.lrc = API.getLyrickuwo(musicInfo.songId + "");
+                        if (musicInfo.lrc == null)
+                            musicInfo.lrc = API.getLyricbaidu(musicInfo.songId + "");
                         musicInfo.albumData = mTracksBeanArrayList.get(i).getAlbum().getBlurPicUrl();
                         adapterList.add(musicInfo);
                     } catch (Exception e) {

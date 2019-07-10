@@ -80,7 +80,6 @@ public class TintRadioButton extends RadioButton implements Tintable, AppCompatB
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void setTextAppearance(int resId) {
         super.setTextAppearance(resId);

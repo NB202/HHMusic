@@ -38,7 +38,7 @@ import com.hhmusic.fragment.BitSetFragment;
 import com.hhmusic.fragment.MainFragment;
 import com.hhmusic.fragment.TimingFragment;
 import com.hhmusic.fragmentnet.TabNetPagerFragment;
-import com.hhmusic.handler.HandlerUtil;
+import com.hhmusic.log.HandlerUtil;
 import com.hhmusic.service.MusicPlayer;
 import com.hhmusic.uitl.ThemeHelper;
 import com.hhmusic.uitl.UserPreferencesUtil;
