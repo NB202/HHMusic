@@ -1,4 +1,0 @@
-#Wed Jul 10 09:12:53 CST 2019
-base.0=D\:\\QMWork\\HHMusic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
-path.0=classes.dex
-renamed.0=classes.dex
